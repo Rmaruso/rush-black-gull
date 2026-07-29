@@ -1,8 +1,111 @@
 {
   "schemaVersion": 1,
   "id": "workshop",
-  "background": { "wall": "#566d70", "floor": "#364348" },
+  "background": {
+    "kind": "procedural",
+    "clearColor": "#566d70",
+    "commands": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 142,
+        "width": 320,
+        "height": 58,
+        "color": "#364348"
+      },
+      {
+        "type": "rect",
+        "x": 22,
+        "y": 34,
+        "width": 72,
+        "height": 72,
+        "color": "#25343c"
+      },
+      {
+        "type": "rect",
+        "x": 18,
+        "y": 106,
+        "width": 102,
+        "height": 10,
+        "color": "#bb9a54"
+      },
+      {
+        "type": "rect",
+        "x": 28,
+        "y": 116,
+        "width": 7,
+        "height": 40,
+        "color": "#bb9a54"
+      },
+      {
+        "type": "rect",
+        "x": 106,
+        "y": 116,
+        "width": 7,
+        "height": 40,
+        "color": "#bb9a54"
+      },
+      {
+        "type": "rect",
+        "x": 244,
+        "y": 18,
+        "width": 54,
+        "height": 72,
+        "color": "#414d52"
+      },
+      {
+        "type": "rect",
+        "x": 250,
+        "y": 24,
+        "width": 42,
+        "height": 6,
+        "color": "#a7b9ba"
+      },
+      {
+        "type": "polygon",
+        "points": [
+          { "x": 132, "y": 44 },
+          { "x": 184, "y": 44 },
+          { "x": 176, "y": 76 },
+          { "x": 140, "y": 76 }
+        ],
+        "color": "#46595d"
+      }
+    ]
+  },
   "actorStart": { "x": 160, "y": 166 },
+  "actor": {
+    "spriteSheetId": "ronan_placeholder",
+    "animationId": "idle_south"
+  },
+  "spriteSheets": [
+    {
+      "id": "ronan_placeholder",
+      "frameWidth": 12,
+      "frameHeight": 25,
+      "palette": ["#17202a", "#d07949", "#263c53", "#d8b08c"],
+      "frames": [
+        {
+          "id": "idle_south_0",
+          "parts": [
+            { "x": -4, "y": -20, "width": 8, "height": 6, "paletteIndex": 3 },
+            { "x": -4, "y": -22, "width": 8, "height": 3, "paletteIndex": 0 },
+            { "x": -5, "y": -14, "width": 10, "height": 10, "paletteIndex": 1 },
+            { "x": -5, "y": -4, "width": 4, "height": 9, "paletteIndex": 2 },
+            { "x": 1, "y": -4, "width": 4, "height": 9, "paletteIndex": 2 }
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "id": "idle_south",
+          "frameIds": ["idle_south_0"],
+          "frameDurationMs": 240,
+          "loop": true
+        }
+      ]
+    }
+  ],
   "walkboxes": [
     {
       "id": "workshop_floor",
@@ -37,6 +140,21 @@
         { "x": 120, "y": 158 },
         { "x": 18, "y": 158 }
       ]
+    }
+  ],
+  "scaleZones": [
+    {
+      "id": "workshop_depth",
+      "polygon": [
+        { "x": 18, "y": 142 },
+        { "x": 302, "y": 142 },
+        { "x": 318, "y": 194 },
+        { "x": 2, "y": 194 }
+      ],
+      "yNear": 142,
+      "yFar": 194,
+      "scaleNear": 0.75,
+      "scaleFar": 1.1
     }
   ]
 }

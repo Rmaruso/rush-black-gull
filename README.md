@@ -107,3 +107,14 @@ The first increment is a strict TypeScript/Vite application using Canvas 2D with
 ### Current limitations and next milestone
 
 Only the workshop, geometric placeholders, a single walkbox, and the Walk and Look verbs exist. There is no inventory, dialogue, save/load, audio, complete puzzle, or vertical-slice content. The recommended next task is to strengthen the data validators and debug overlay, then add multi-walkbox navigation without starting P01.
+
+## Built-in art and scene workflow
+
+No Aseprite or Tiled knowledge is required for the current vertical-slice work. The workshop background, Ronan placeholder, sprite frames, animation metadata and scale zones are original geometric data validated from JSON.
+
+Run `npm run dev`, then open:
+
+- `http://127.0.0.1:4173/` for the game.
+- `http://127.0.0.1:4173/?editor=1` for the browser polygon editor.
+
+The editor draws walkboxes, hotspots and scale zones directly over the logical 320×200 scene and exports a JSON fragment suitable for merging into scene data. It uses native Canvas, Blob and download APIs, so no extra editor dependency is needed. See [`docs/PROGRAMMATIC_ART_WORKFLOW.md`](docs/PROGRAMMATIC_ART_WORKFLOW.md) for the complete placeholder and final-art replacement guide.

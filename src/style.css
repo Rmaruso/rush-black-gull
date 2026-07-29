@@ -61,3 +61,104 @@ canvas {
   margin: 0;
   text-align: center;
 }
+
+.editor-shell {
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+  background: #101820;
+}
+
+.editor-shell header {
+  max-width: 1120px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.editor-shell h1,
+.editor-shell p {
+  margin: 0;
+}
+
+.editor-shell .eyebrow {
+  color: #ddb65b;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.editor-shell a {
+  color: #f3ead3;
+}
+
+.editor-workspace {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+  gap: 18px;
+}
+
+.editor-stage {
+  display: grid;
+  place-items: center;
+  min-height: 440px;
+  background: #080d13;
+  border: 1px solid #344952;
+}
+
+.editor-stage canvas {
+  position: static;
+  width: 640px;
+  height: 400px;
+  max-width: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.editor-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  background: #1c2a33;
+  border: 1px solid #344952;
+}
+
+.editor-panel label {
+  display: grid;
+  gap: 6px;
+}
+
+.editor-panel select,
+.editor-panel textarea,
+.editor-panel button {
+  color: #f3ead3;
+  background: #263944;
+  border: 1px solid #6d7f7e;
+  font: inherit;
+}
+
+.editor-panel select,
+.editor-panel button {
+  padding: 8px;
+}
+
+.editor-panel textarea {
+  min-height: 180px;
+  resize: vertical;
+  font-size: 11px;
+}
+
+.editor-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+@media (max-width: 760px) {
+  .editor-workspace {
+    grid-template-columns: 1fr;
+  }
+}
