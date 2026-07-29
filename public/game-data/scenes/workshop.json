@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "workshop",
+  "background": { "wall": "#566d70", "floor": "#364348" },
+  "actorStart": { "x": 160, "y": 166 },
+  "walkboxes": [
+    {
+      "id": "workshop_floor",
+      "polygon": [
+        { "x": 18, "y": 142 },
+        { "x": 302, "y": 142 },
+        { "x": 318, "y": 194 },
+        { "x": 2, "y": 194 }
+      ],
+      "neighbours": []
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "gutter",
+      "nameKey": "hotspot.gutter.name",
+      "lookKey": "hotspot.gutter.look",
+      "polygon": [
+        { "x": 244, "y": 18 },
+        { "x": 298, "y": 18 },
+        { "x": 298, "y": 90 },
+        { "x": 244, "y": 90 }
+      ]
+    },
+    {
+      "id": "workbench",
+      "nameKey": "hotspot.workbench.name",
+      "lookKey": "hotspot.workbench.look",
+      "polygon": [
+        { "x": 18, "y": 100 },
+        { "x": 120, "y": 100 },
+        { "x": 120, "y": 158 },
+        { "x": 18, "y": 158 }
+      ]
+    }
+  ]
+}

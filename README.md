@@ -71,3 +71,39 @@ No utilizar personajes, nombres, chistes, diálogos, música, código ni recurso
 ## Inicio con Codex
 
 Codex debe leer `AGENTS.md` y ejecutar las instrucciones de `CODEX_TASK.md`. La primera entrega es únicamente la base del motor y una escena mínima jugable; no el juego completo.
+
+## Minimal playable engine
+
+### Prerequisites
+
+- Node.js 20.19+ or 22.12+.
+- npm.
+- A Playwright Chromium installation (`npx playwright install chromium`).
+
+### Commands
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run lint
+npm run format:check
+npm run test
+npm run test:e2e
+```
+
+### Architecture
+
+The first increment is a strict TypeScript/Vite application using Canvas 2D without a game framework. A deterministic clock updates a geometric Ronan placeholder independently of display frame rate. The renderer keeps a 320×200 internal buffer and uses integer nearest-neighbour scaling with letterboxing. Pointer input is translated to logical coordinates. Zod validates the workshop scene JSON; a separate `en-IE` JSON file supplies all interaction text. Polygon utilities constrain walking, and a small region-graph A* module establishes the multi-walkbox navigation boundary.
+
+### Manual verification
+
+1. Run `npm run dev` and open the printed local URL.
+2. Resize the browser and confirm the image remains sharp, centred, and integer-scaled.
+3. Click the workshop floor and confirm Ronan walks to the selected valid point and stops.
+4. Select **Look**, then click the gutter and workbench; confirm localised descriptions appear.
+5. Confirm clicking outside the floor projects Ronan to its nearest edge when **Walk** is selected.
+
+### Current limitations and next milestone
+
+Only the workshop, geometric placeholders, a single walkbox, and the Walk and Look verbs exist. There is no inventory, dialogue, save/load, audio, complete puzzle, or vertical-slice content. The recommended next task is to strengthen the data validators and debug overlay, then add multi-walkbox navigation without starting P01.

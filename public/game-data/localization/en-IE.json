@@ -1,0 +1,13 @@
+{
+  "locale": "en-IE",
+  "messages": {
+    "verb.walk": "Walk",
+    "verb.look": "Look",
+    "ui.actions": "Actions",
+    "look.nothing": "Nothing there needs a sign.",
+    "hotspot.gutter.name": "Gutter",
+    "hotspot.gutter.look": "A high gutter. Naturally, something shiny is wedged in it.",
+    "hotspot.workbench.name": "Workbench",
+    "hotspot.workbench.look": "A sturdy workbench, organised according to a system only Ronan understands."
+  }
+}
