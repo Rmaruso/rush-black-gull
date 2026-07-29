@@ -2,6 +2,7 @@ import './style.css';
 import { Game } from './engine/Game';
 import { I18n } from './localization/I18n';
 import { loadScene } from './scenes/SceneLoader';
+import { SceneEditor } from './editor/SceneEditor';
 
 const app = document.querySelector<HTMLElement>('#app');
 if (!app) throw new Error('Application root is missing.');
@@ -22,25 +23,33 @@ try {
     loadScene('/game-data/scenes/workshop.json'),
     I18n.load('/game-data/localization/en-IE.json'),
   ]);
-  app.querySelectorAll<HTMLElement>('[data-i18n]').forEach((element) => {
-    element.textContent = i18n.t(element.dataset.i18n!);
-  });
-  app.querySelectorAll<HTMLElement>('[data-i18n-aria]').forEach((element) => {
-    element.setAttribute('aria-label', i18n.t(element.dataset.i18nAria!));
-  });
-  const game = new Game(
-    app.querySelector('[data-testid="viewport"]')!,
-    app.querySelector('.verbs')!,
-    scene,
-    i18n,
-  );
-  game.events.on('message', (message) => {
-    app.querySelector<HTMLElement>('[data-testid="message"]')!.textContent =
-      message;
-  });
-  document.documentElement.dataset.sceneLoaded = scene.id;
-  game.start();
+  if (new URLSearchParams(window.location.search).has('editor')) {
+    new SceneEditor(app, scene, i18n);
+    document.documentElement.dataset.sceneLoaded = scene.id;
+  } else {
+    app.querySelectorAll<HTMLElement>('[data-i18n]').forEach((element) => {
+      element.textContent = i18n.t(element.dataset.i18n!);
+    });
+    app.querySelectorAll<HTMLElement>('[data-i18n-aria]').forEach((element) => {
+      element.setAttribute('aria-label', i18n.t(element.dataset.i18nAria!));
+    });
+    const game = new Game(
+      app.querySelector('[data-testid="viewport"]')!,
+      app.querySelector('.verbs')!,
+      scene,
+      i18n,
+    );
+    game.events.on('message', (message) => {
+      app.querySelector<HTMLElement>('[data-testid="message"]')!.textContent =
+        message;
+    });
+    document.documentElement.dataset.sceneLoaded = scene.id;
+    game.start();
+  }
 } catch (error) {
-  app.querySelector<HTMLElement>('[data-testid="message"]')!.textContent =
+  const message =
     error instanceof Error ? error.message : 'The game could not start.';
+  const status = app.querySelector<HTMLElement>('[data-testid="message"]');
+  if (status) status.textContent = message;
+  else app.textContent = message;
 }

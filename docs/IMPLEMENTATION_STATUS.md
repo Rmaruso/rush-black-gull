@@ -4,10 +4,13 @@
 
 Issue #1's minimal playable engine increment is implemented: a validated workshop scene renders at logical 320×200, Ronan walks within its polygon, and Look displays localised hotspot text.
 
+The next vertical-slice tooling increment adds validated procedural background commands, palette-based geometric sprite frames, animation metadata, actor scale zones and an in-browser polygon editor. This replaces the need for Aseprite or Tiled during placeholder production.
+
 ## Files created
 
 - Project configuration: `package.json`, TypeScript, Vite, ESLint, Prettier and Playwright configuration.
 - Runtime: engine clock/event bus/game coordinator, renderer/scaler, pointer input, navigation geometry/A*, actor movement, scene loader/hotspot type, verb panel and localisation.
+- Tooling: procedural art renderer, scene editor model, browser editor UI and programmatic art workflow guide.
 - Data: `workshop.json` and `en-IE.json`.
 - Tests: unit coverage for scaling, polygon geometry, A*, actor movement, scene validation and localisation; Playwright workshop smoke coverage.
 
@@ -20,6 +23,8 @@ Issue #1's minimal playable engine increment is implemented: a validated worksho
 - Valid and invalid scene schema cases.
 - Localisation lookup and missing-key behaviour.
 - Browser load, scene readiness, canvas visibility and gutter Look interaction.
+- Procedural scale interpolation, extended scene references and editor export logic.
+- Browser polygon creation and JSON download.
 
 ## Deviations
 
@@ -28,9 +33,9 @@ Issue #1's minimal playable engine increment is implemented: a validated worksho
 ## Known issues
 
 - The single workshop walkbox does not yet need region transitions or path smoothing.
-- Verb button labels are static accessibility controls; interaction responses and game-world text are localised.
-- Placeholder scenery has no authored sprite or occlusion layers.
+- Editor controls, verb labels, interaction responses and game-world text are localised.
+- Final PNG loading and foreground occlusion layers remain future work; current art is intentionally procedural.
 
 ## Exact recommended next task
 
-Add validated multi-walkbox scene metadata, path smoothing and a toggleable debug overlay that draws walkboxes, hotspots, actor baseline and current path. Extend unit and Playwright coverage for transitions between adjacent walkboxes. Do not begin inventory, dialogue, save/load, audio or puzzle P01.
+Add image-backed final-art loading with an asset licence manifest and keep the procedural renderer as a fallback. Add foreground occlusion layers and validate them in the browser editor. Do not begin inventory, dialogue, save/load, audio or puzzle P01.
